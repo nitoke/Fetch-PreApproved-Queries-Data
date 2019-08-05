@@ -1,0 +1,110 @@
+﻿.border {
+    border: 1px solid black !important;
+}
+.paragraphMargin{
+    margin-top: 10px;
+}
+#ShowQuery, .select2-container {
+    width: 100% !important;
+}
+.jtable-left-area select {
+    color: black;
+}
+#SubmitQuery, #AddNewQuery, #Home, #SubmitDynamicQuery, #SubmitDynamicQueryWithCol {
+    background-color: #4d90fe;
+    border-color: #4d90fe;
+}
+body {
+    background-color: #ADD8E6 !important;
+}
+.dataTable thead tr th {
+    background-color: #4d90fe;
+}
+#QueryResult_length label select{
+    height: 33px
+}
+/*.excelButton {
+    background-color: #4d90fe !important;
+}*/
+.buttons-excel {
+    background-color: #4d90fe !important;
+    border-color: #4d90fe !important;
+    color: white !important;
+    background-image: none !important;
+}
+.ui-widget-header, .ui-button {
+    background-color: #2d89ef !important
+}
+#createDBRecord {
+    height: 500px !important;
+    width: 600px !important;
+}
+.jtable-dialog-form {
+    height: 350px !important;
+    width: 600px !important;
+}
+.jtable-input-field-container {
+    height: 178px !important;
+    width: 665px !important;
+}
+div.dataTables_wrapper {
+    width: 1140px;
+    margin: 0 auto;
+}
+.accordionbutton {
+    background-color: #4d90fe !important;
+    
+}
+#numberOfRecords, #numberOfRec {
+    height: 26px
+}
+.marginTopBottom{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.paddingTopBottom{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.marginTopCss {
+    margin-top: 20px;
+}
+.txtColcss {
+    width: 160px
+}
+.txtcss {
+    width: 137px
+}
+.paddingRightcss{
+    padding-right: 0px;
+}
+.paddingleftcss {
+    padding-left: 0px;
+}
+.noPaddingRightLeft {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+label.error {
+    color: #a94442;
+}
+.addPaddingLeft{
+    padding-left: 10px
+}
+#loadingmessage {
+    background: rgba(0,0,0,.5) url('../Content/themes/base/minified/images/loadinggraphic.gif') no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+#QueryResult tbody tr td {
+    border: 1px solid black !important;
+}
+
+
+
+

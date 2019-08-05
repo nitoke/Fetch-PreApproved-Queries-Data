@@ -1,0 +1,119 @@
+﻿@model DBApp.Models.QueriesModel
+<link href="/Content/bootstrap.css" rel="stylesheet" />
+<link href="/Content/site.css" rel="stylesheet" />
+<script src="/Scripts/modernizr-2.8.3.js"></script>
+<script src="/Scripts/jquery-1.12.4.js"></script>
+<script src="/Scripts/jquery-3.3.1.js"></script>
+<link href="~/Content/QueryPage.css" rel="stylesheet" />
+<link href="~/Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" />
+@*<link href="~/Content/Jtable-jquery-ui.css" rel="stylesheet" />*@
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery12-ui.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jtable/jquery.jtable.js"></script>
+
+<div class="container">
+    <div>
+        <div>
+            <div class="col-md-12">
+                @*<a class="" onclick="location.href='@Url.Action("Index", "Home")'" style="cursor: pointer;">Home</a>*@
+                <button type="button" id="Home" class="btn btn-danger" onclick="location.href='@Url.Action("Index", "Home")'" style="cursor: pointer;">Home</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p style="text-align: center;font-weight: bold !important; font-size:20px !important">Welcome user @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</p>
+            }
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="panel-group" id="accordion">
+            <div class="col-md-12 panel panel-default form-group paddingRightcss paddingleftcss">
+                <div class="panel-heading accordionbutton">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#addQuery" style="font-weight: bold !important">Add/Edit Query</a>
+                    </h4>
+                </div>
+                <div id="addQuery" class="col-md-12 panel-collapse collapse marginTopCss">
+                    <div id="QueryTableContainer"></div>
+                </div>
+            </div>
+            <div class="col-md-12 panel panel-default form-group paddingRightcss paddingleftcss">
+                <div class="panel-heading accordionbutton">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#addDB" style="font-weight: bold !important">Add/Edit Database</a>
+                    </h4>
+                </div>
+                <div id="addDB" class="col-md-12 panel-collapse collapse marginTopCss">
+                    <div id="DBTableContainer"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+        $(document).ready(function () {
+            $('#QueryTableContainer').jtable({
+                title: 'Queries',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                defaultSorting: 'QueryID DESC',
+                actions:
+                {
+                    listAction: '@Url.Action("DisplayQueryList")',//'/home/Contact'
+                    createAction: '@Url.Action("CreateQuery")',
+                    updateAction: '@Url.Action("UpdateQuery")',
+                    deleteAction: '@Url.Action("DeleteQuery")',
+                },
+                fields: {
+                    QueryID: {
+                        key: true,
+                        list: false
+                    },
+                    Query1: {
+                        title: 'Query',
+                        width: '40%'
+                    },
+                    QueryAlias: {
+                        title: 'QueryAlias',
+                        width: '20%'
+                    }
+                }
+            });
+            $('#QueryTableContainer').jtable('load');
+
+            $('#DBTableContainer').jtable({
+                title: 'Databases',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                defaultSorting: 'DatatabseID DESC',
+                actions:
+                {
+                    listAction: '@Url.Action("DisplayDBList")',//'/home/Contact'
+                    createAction: '@Url.Action("CreateDB")',
+                    updateAction: '@Url.Action("UpdateDB")',
+                    deleteAction: '@Url.Action("DeleteDB")',
+                },
+                fields: {
+                    DatatabseID: {
+                        key: true,
+                        list: false
+                    },
+                    DatabaseShortName: {
+                        title: 'DatabaseShortName',
+                        width: '40%'
+                    },
+                    DatabaseFullName: {
+                        title: 'DatabaseFullName',
+                        width: '20%'
+                    }
+                }
+            });
+            $('#DBTableContainer').jtable('load');
+    });
+</script>
